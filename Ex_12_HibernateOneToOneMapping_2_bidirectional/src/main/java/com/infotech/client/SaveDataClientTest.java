@@ -18,19 +18,17 @@ public class SaveDataClientTest {
 			employee.setEmail("martin.cs2017@gmail.com");
 			employee.setSalary(50000.00);
 			employee.setDoj(new Date());
-			
-			Address address1=new Address();
+
+			Address address1 = new Address();
 			address1.setCity("Chennai");
 			address1.setPincode(9087727L);
 			address1.setState("Tamilnadu");
 			address1.setStreet("Park street");
-			
+
 			employee.setAddress(address1);
-			
-			// If we do not provide cascade type the parent and child save separately, but order is matter
-			session.save(employee);
-			session.save(address1);
-			
+
+			session.persist(employee);
+
 			session.getTransaction().commit();
 
 		} catch (Exception e) {

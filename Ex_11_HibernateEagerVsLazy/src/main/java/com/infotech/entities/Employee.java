@@ -7,6 +7,7 @@ import java.util.HashSet;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -40,7 +41,8 @@ public class Employee {
 	@Column(name = "date_of_joining")
 	private Date doj;
 	
-	@ElementCollection
+//	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@JoinTable(name="address_table",joinColumns=@JoinColumn(name="employee_id"))
 	@GenericGenerator(name="sequence_gen",strategy="sequence")
 	@CollectionId(columns= {@Column(name="address_id")},generator="sequence_gen",type=@Type(type="int"))

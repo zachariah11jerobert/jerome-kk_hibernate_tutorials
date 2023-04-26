@@ -14,8 +14,11 @@ import javax.persistence.Table;
 public class Address {
 
 	@Id
-	@Column(name = "street_name", length = 50)
+	@Column(name = "address_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer addressId;
+
+	@Column(name = "street_name", length = 50)
 	private String street;
 	@Column(name = "city_name", length = 50)
 	private String city;
@@ -23,9 +26,17 @@ public class Address {
 	private String state;
 	@Column(name = "pin_code")
 	private Long pincode;
-	
-	@OneToOne(mappedBy="address")
+
+	@OneToOne(mappedBy = "address")
 	private Employee employee;
+
+	public Integer getAddressId() {
+		return addressId;
+	}
+
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
 
 	public String getStreet() {
 		return street;
@@ -59,4 +70,11 @@ public class Address {
 		this.pincode = pincode;
 	}
 
+	public Employee getEmployee() {
+		return employee;
+	}
+
+	public void setEmployee(Employee employee) {
+		this.employee = employee;
+	}
 }

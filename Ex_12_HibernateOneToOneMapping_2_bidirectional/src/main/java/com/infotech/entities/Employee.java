@@ -33,7 +33,7 @@ public class Employee {
 	@Column(name = "date_of_joining")
 	private Date doj;
 
-	@OneToOne(cascade = CascadeType.ALL)
+	@OneToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "fk_address_id")
 	private Address address;
 

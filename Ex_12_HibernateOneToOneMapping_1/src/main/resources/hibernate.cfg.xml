@@ -15,5 +15,6 @@
   	<property name="hibernate.format_sql">true</property>
   	
   	<mapping class="com.infotech.entities.Employee"/>
+  	<mapping class="com.infotech.entities.Address"/>
   </session-factory>
 </hibernate-configuration>

@@ -45,6 +45,7 @@ public class Employee {
 	@GenericGenerator(name="sequence_gen",strategy="sequence")
 	@CollectionId(columns= {@Column(name="address_id")},generator="sequence_gen",type=@Type(type="int"))
 	private Collection<Address> addressList=new HashSet<>();
+//	private Collection<Address> addressList=new ArrayList<>();
 
 	@Column(name = "salary")
 	private Double salary;
