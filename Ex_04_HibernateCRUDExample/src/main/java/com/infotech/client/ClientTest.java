@@ -11,9 +11,9 @@ public class ClientTest {
 
 	public static void main(String[] args) {
 		try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-//			createEmployee(session);
-//			getEmployeeById(session);
-//			updateEmployeeById(session);
+			createEmployee(session);
+			getEmployeeById(session);
+			updateEmployeeById(session);
 			deleteEmployeeById(session);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -24,7 +24,6 @@ public class ClientTest {
 	private static void deleteEmployeeById(Session session) {
 		Employee employee = session.get(Employee.class, 2);
 		if (employee != null) {
-			employee.setSalary(90000.00);
 			session.beginTransaction();
 
 			session.delete(employee);
